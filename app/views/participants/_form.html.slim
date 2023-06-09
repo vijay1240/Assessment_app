@@ -1,0 +1,30 @@
+.centered-div
+  = simple_form_for @participant, validate: true do |f|
+    .row
+      .col-sm-2
+        | Name
+      .col-sm-10
+        = f.input :name, label: false
+    .row
+      .col-sm-2
+        | Email
+      .col-sm-10
+        = f.input :email, label: false
+    .row
+      .col-sm-2
+        | Phone Number
+      .col-sm-10
+        = f.input :phone_number, label: false
+    .row
+      .col-sm-2
+        | Gender
+      .col-sm-10
+        = f.input :gender, as: :select, collection: ['Male', 'Female'], label: false
+    .row
+      .col-sm-2
+        | Date of Birth
+      .col-sm-10
+        = f.input :date_of_birth, label: false, class: 'datepicker'
+    .row
+      .col-sm-12
+        = f.submit 'Save', class: 'btn btn-primary'

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AssessmentApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Assessment App</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active" >
+            <%= link_to 'Registries', registries_path %>
+          </li>
+          <li>
+             <%= link_to 'Coordinators', coordinators_path %>
+          </li>
+          <li>
+            <%= link_to 'Participants', participants_path %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+.centered-div
+  = simple_form_for @coordinator, url: enroll_coordinator_path(@coordinator) do |f|
+    = f.fields_for :enrollment_informations do |ei|
+      = ei.select  :registry_id, Registry.open.map{|r| [r.name, r.id]}, { prompt: 'Select Registry' }, { class: 'select2-input' }
+      = ei.input   :method_of_contact, as: :select, collection: EnrollmentInformation::CONTACT_METHODS.map{|m| [m.to_s.titleize, m]}
+      = ei.input   :remarks, as: :text
+      = ei.select  :participant_ids, Participant.all.map{|a| [a.name, a.id]}, {prompt: 'Select Participants' }, { multiple: true, class: 'select2-input'}
+    = f.submit 'Save', class: 'btn btn-primary'

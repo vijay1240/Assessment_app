@@ -1,0 +1,15 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.centered-div {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+}
+
+.mt20 { margin-top: 20px; }
+.pl10 { padding-left: 10px; }
+
+select.select2-input {
+  width: 100%;
+}

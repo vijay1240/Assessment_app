@@ -1,0 +1,48 @@
+.centered-div
+  .row
+    .col-sm-6
+      h2
+        | Participants
+    .col-sm-6
+      = link_to 'Add New', new_participant_path, class: 'btn btn-primary pull-right mt20'
+  table class="table table-striped"
+    thead
+      tr
+        th scope="col"
+          | Id
+        th scope="col"
+          | Name
+        th scope="col"
+          | Email
+        th scope="col"
+          | Phone Number
+        th scope="col"
+          | Gender
+        th scope="col"
+          | Date of Birth
+        th scope="col"
+          | Actions
+    tbody
+      - @participants.each do |participant|
+        tr
+          td
+            = participant.id
+          td
+            = participant.name
+          td
+            = participant.email
+          td
+            = participant.phone_number
+          td
+            = participant.gender
+          td
+            = participant.date_of_birth
+          td
+            = link_to 'Edit Participant', edit_participant_path(participant), class: 'btn btn-primary btn-sm'
+            span.pl10
+              = link_to 'View', participant_path(participant), class: 'btn btn-primary btn-sm'
+
+    tfoot
+      tr
+        td
+          = paginate @participants

@@ -1,0 +1,40 @@
+.centered-div
+  .row
+    .col-sm-6
+      h2
+        | Registries
+    .col-sm-6
+      = link_to 'Add New', new_registry_path, class: 'btn btn-primary pull-right mt20'
+  table class="table table-striped "
+    thead
+      tr
+        th scope="col"
+          | Id
+        th scope="col"
+          | Name
+        th scope="col"
+          | Location
+        th scope="col"
+          | Status
+        th scope="col"
+          | Actions
+    tbody
+      - @registries.each do |registry|
+        tr
+          td
+            = registry.id
+          td
+            = registry.name
+          td
+            = registry.location
+          td
+            = registry.status
+          td
+            = link_to 'Add Coordinator', edit_registry_path(registry.id), class: 'btn btn-primary btn-sm'
+            span.pl10
+              = link_to 'View', registry_path(registry), class: 'btn btn-primary btn-sm'
+
+    tfoot
+      tr
+        td
+          = paginate @registries

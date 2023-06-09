@@ -1,0 +1,42 @@
+.centered-div
+  h2
+    | Coordinator
+  .row
+    .col-sm-1
+      label
+        | Name
+    .col-sm-11
+      = @coordinator.name
+  - @coordinator.enrollment_informations.each do |en_info|
+    .row
+      .col-sm-1
+        label
+          | Registy
+      .col-sm-11
+        = en_info.registry.name
+    .row
+      .col-sm-1
+        h4
+          | Participants:
+    table.table.table-striped
+      thead
+        tr
+          th
+            | Name
+          th
+            | Email
+          th
+            | Date Of Birth
+      tbody
+        - en_info.participants.each do |participant|
+          tr
+            td
+              = participant.name
+            td
+              = participant.email
+            td
+              = participant.date_of_birth
+
+
+
+

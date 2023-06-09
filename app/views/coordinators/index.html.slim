@@ -1,0 +1,53 @@
+.centered-div
+  .row
+    .col-sm-6
+      h2
+        | Coordinators
+    .col-sm-6
+      .pull-right
+        = link_to 'Add New', new_coordinator_path, class: 'btn btn-primary mt20'
+        span.pl10
+          = link_to 'Export', export_coordinators_path({format: :csv}), class: 'btn btn-primary mt20', target: '_blank'
+  table.table.table-striped
+    thead
+      tr
+        th scope="col"
+          | Id
+        th scope="col"
+          | Name
+        th scope="col"
+          | Email
+        th scope="col"
+          | Phone Number
+        th scope="col"
+          | Gender
+        th scope="col"
+          | Date of Birth
+        th scope="col"
+          | Actions
+    tbody
+      - @coordinators.each do |coordinator|
+        tr
+          td
+            = coordinator.id
+          td
+            = coordinator.name
+          td
+            = coordinator.email
+          td
+            = coordinator.phone_number
+          td
+            = coordinator.gender
+          td
+            = coordinator.date_of_birth
+          td
+            = link_to 'Edit Coordinator', edit_coordinator_path(coordinator.id), class: 'btn btn-primary btn-sm'
+            span.pl10
+              = link_to 'Enroll to Registry', enroll_coordinator_path(coordinator), class: 'btn btn-primary btn-sm'
+            span.pl10
+              = link_to 'View', coordinator_path(coordinator), class: 'btn btn-primary btn-sm'
+
+    tfoot
+      tr
+        td
+          = paginate @coordinators

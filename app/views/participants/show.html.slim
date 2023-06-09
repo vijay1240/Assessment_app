@@ -1,0 +1,35 @@
+.centered-div
+  h2
+    | Participant
+  .row
+    .col-sm-1
+      label
+        | Name
+    .col-sm-11
+      = @participant.name
+  .row
+    .col-sm-1
+      h4
+        | Registy:
+  table.table.table-striped
+    thead
+      tr
+        th
+          | Name
+        th
+          | Email
+        th
+          | Date Of Birth
+    tbody
+      - @participant.registries.each do |registry|
+        tr
+          td
+            = registry.name
+          td
+            = registry.location
+          td
+            = registry.status
+
+
+
+

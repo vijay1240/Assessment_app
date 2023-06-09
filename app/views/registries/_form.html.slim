@@ -1,0 +1,25 @@
+.centered-div
+  = simple_form_for @registry do |f|
+    .row
+      .col-sm-2
+        | Name
+      .col-sm-10
+        = f.input :name, label: false
+    .row
+      .col-sm-2
+        | Location
+      .col-sm-10
+        = f.input :location, label: false
+    .row
+      .col-sm-2
+        | Status
+      .col-sm-10
+        = f.input :status, as: :select, collection: Registry.statuses.map{|k,v| [k.titleize, k]}, selected: f.object.status, label: false
+    .row
+      .col-sm-2
+        | Select Coordinator
+      .col-sm-10
+        = f.select :coordinator_ids, Coordinator.all.map{|a| [a.name, a.id]}, {prompt: true}, { multiple: true, label: false, class: 'select2-input' }
+    .row
+      .col-sm-12
+        = f.submit 'Save', class: 'btn btn-primary'
